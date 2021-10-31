@@ -10,9 +10,7 @@ router.get('/',(request, response)=>{
       console.log("Error Retrieving Transactions",error);
       response.sendStatus(500)
     }
-    else response.status(200).json({
-      "transactions":data
-    })
+    else response.status(200).json(data)
   })
 })
 //---Retrieve Balance---(Required Route)
