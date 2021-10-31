@@ -105,7 +105,7 @@ router.post('/spend',(request,response)=>{
       }
       let pointsSpent = []
       for (let entry in payerExpense){
-        pointsSpent.push({[entry]:payerExpense[entry]})
+        pointsSpent.push({"payer":entry, "points":payerExpense[entry]})
       }
       response.status(200).json(pointsSpent)
     }
