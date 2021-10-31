@@ -102,10 +102,15 @@ router.post('/spend',(request,response)=>{
         j+=1
       }
       let pointsSpent = []
-      for (let entry in payerExpense){
-        pointsSpent.push({"payer":entry, "points":payerExpense[entry]})
+      for (let entry in payerExpense) {
+        pointsSpent.push({ "payer": entry, "points": payerExpense[entry] })
       }
-      response.status(200).json(pointsSpent)
+      if (expenditure>0){
+        response.status(200).json(["Not enough points from transactions. Remaining expenditure: ${expenditure}", pointsSpent])
+      }
+      else{
+        response.status(200).json(pointsSpent) 
+      }      
     }
   })
 })
