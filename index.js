@@ -1,5 +1,5 @@
 const express=require("express")
-const trnsactionsRouter=require("./transactions/router")
+const transactionsRouter=require("./transactions/router")
 
 let app=express()
 const PORT=9000
@@ -17,7 +17,7 @@ app.get('/',(request, response)=>{
   response.status(200).send("It Lives!!!")
 })
 
-app.use('/transactions',transactionsRouter)
+app.use('/transactions', transactionsRouter)
 
 app.listen(PORT,()=>{
   console.log("App is listening on PORT:${PORT}")
